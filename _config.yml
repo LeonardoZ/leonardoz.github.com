@@ -1,19 +1,16 @@
-title:            Leonardo Zapparoli
+title:            Leonardo Zapparoli - Desenvolvimento de software
 description:      Um blog sobre Java, Scala, linguagens e relacionados.
-url:              # Site url, without a slash at the end.
-signoff:          # Your name.
-disqus_shortname: # disqus comment thread for post header options. ( leave blank if unwanted. )
+url:              
+signoff:          Leonardo
+disqus_shortname: leonardoz
 facebook_appid:   # appid for like button, remove from /_includes/share.html if unwanted.
-google_analytics: # set tracking, remove from /javascripts/basic.js if unwanted.
+google_analytics: UA-84384831-1
 
 links:
-  - name:         Principal
+  - name:         Blog
     url:          /
   - name:         Sobre
     url:          /sobre
-  - name:         Blog
-    url:          http://leonardoz.github.com
-    external:     true
   - name:         GitHub
     url:          http://github.com/leonardoz
     external:     true
