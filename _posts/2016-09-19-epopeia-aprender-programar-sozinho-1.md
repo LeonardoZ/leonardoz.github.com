@@ -1,7 +1,7 @@
 ---
 layout: post
-title: A epopeia de se aprender uma linguagem de programação sozinho – Parte I
-date: 19/09/2016 12:00:00
+title: Uma breve introdução à Scala
+date: 07/10/2016 18:00:00
 disqus: y
 share: y
 ---
