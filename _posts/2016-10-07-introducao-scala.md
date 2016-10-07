@@ -6,18 +6,18 @@ disqus: y
 share: y
 ---
 
-###O que é
+###  O que é
 Scala é uma linguagem de programação multi paradigma que oferece suporte à Programação Orientada a Objetos e Programação Funcional de forma conjunta. A linguagem é compilada e seu sistema de tipos é forte e estático, além de ser unificado (todos os valores, mesmo os numéricos como Integer e Double, ou booleanos) são todos instâncias de uma classe. Você pode conferir tudo em detalhes, fazer o download, instalar e configurar [nesse site](http://scala-lang.org).
 
 A linguagem foi criada pelo cientista da computação alemão Martin Odersky, que é professor na Escola Politécnica Federal de Lausana (École Polytechnique Fédérale de Lausanne, EPFL), na Suíça. Odersky participou do desenvolvimento do próprio Java, trabalhando com toda parte de Generics e com o desenvolvimento da versão atual do javac.
 
-###Público alvo
+### Público alvo
 A linguagem possuí muitos recursos, e o paradigma de programação funcional exige um grande esforço para ser aprendido, principalmente para os programadores que não estão habituados com a forma funcional de se programar. Por conta desses fatores, a quantidade de recursos e um paradigma não usual, a curva de aprendizado de Scala é enorme, o que cria barreiras em determinadas equipes de desenvolvimento.
 
 Por conta das dificuldades, uma métrica de aprendizado da linguagem foi criada por Odersky, e apesar de sua controvérsia, é uma boa fonte para se avaliar o seu progresso e pautar estudos. Uma descrição completa dos níveis pode ser lida aqui [Link](http://www.scala-lang.org/old/node/8610)
 
 
-###Ambiente de execução
+### Ambiente de execução
 Scala é uma das linguagens que tem como ambiente de execução a JVM, assim como Java, Groovy e Kotlin. Isso significa que ao ser compilada, um arquivo ".scala" (arquivo de código fonte) se torna um arquivo ".class" (bytecode lido pela JVM), e quando empacotada ela se torna um JAR. Resumindo, é possível usar bibliotecas Java em projetos Scala, e apesar da haverem limitações, usar Scala em Java também.
 
 ### Um pouco de Programação Orientada a Objetos
@@ -82,15 +82,15 @@ Além disso para esse caso, o uso de recursão, em detrimento das estruturas de 
 
 Substituir os elementos tradicionais pode ser doloroso, os algorítimos se modificam totalmente, e por isso a mudança é custosa. Estamos habituados com um conceito de programação e o estabelecemos como verdade. Mas verdade é um conceito que muda dependendo do conhecimento que se adquire.
 
-###Anatomia de um Programa Scala
+### Anatomia de um Programa Scala
 
 Vamos ver como tudo isso é utilizado pelo Scala:
 
-####REPL
+### REPL
 
 Scala possuí um interpretador, o Read-Evaluate-Print Loop é um shell que permite a execução de código Scala, de forma rápida e simples, perfeita para explorar a linguagem. Basta instalar e configurar seu ambiente conforme descrito no próprio site da linguagem para executar os exemplos abaixo:
 
-###Function
+### Function
 
 Como já descrevemos a importância das Funções (Functions) em programação funcional (Functional Programming, FP), vamos entender como escrevê-las em Scala.
 
@@ -170,7 +170,7 @@ val result: Int = square(2)
 
 Para invocar a função, utilize a sintaxe descrita no exemplo **G1**, e o resultado da expressão poderá será calculado.
 
-####Atribuição de valores e expressão condicional
+### Atribuição de valores e expressão condicional
 Como visto no exemplo **G1**, valores podem ser  declarados utilizando a palavra chave **val** seguida de seu **nome**. É impossível a partir desse ponto reassinar algum outro valor, pois **val** indica que não poderá ser alterado. Outro ponto interessante é que não é necessário declarar o tipo de **result** (do exemplo **G1**; Int, no caso), pois Scala possuí um sistema de **inferência de tipos (Type Inference)**, que em tempo de compilação consegue verificar o tipo. Isso faz com que se ganhe legibilidade em casos em que o tipo é obvio, reduzindo a verbosidade da linguagem, mas mantendo a checagem de tipos (e sua segurança) em tempo compilação. O exemplo **H1** mostra como seria a declaração explicita do tipo do valor.
 
 Se necessário, Scala suporta o operador **var**, que funciona como uma variável tradicional, assim como outras linguagens. Seu uso no entanto deve ser para casos muito restritos, e deve ser evitado o máximo possível.
@@ -183,7 +183,7 @@ def name(x: String) = if (x.isEmpty) "Anonymous" else x
 
 É possível utilizar a mesma regra dos blocos de corpo das funções, se  caso houver mais de uma expressão.
 
-####High-Order Functions e Anonymous Functions
+###  High-Order Functions e Anonymous Functions
 
 Não existe uma tradução exatamente boa para **High-Order Functions**, mas poderíamos dizer que é algo aproximado à "Funções de Alta-Ordem". High-Order Functions são funções que recebem como parâmetros e/ou retornam outra função.
 
