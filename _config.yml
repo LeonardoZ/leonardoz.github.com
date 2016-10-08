@@ -16,9 +16,7 @@ links:
     external:     true
 highlighter:      rouge
 permalink:        pretty
-markdown:         kramdown
-		    input: GFM
-  		    syntax_highlighter: rouge
+markdown:         kramdown	   
 redcarpet:
   extensions:
     - smart
