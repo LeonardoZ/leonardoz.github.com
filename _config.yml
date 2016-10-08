@@ -17,8 +17,8 @@ links:
 highlighter:      rouge
 permalink:        pretty
 markdown:         kramdown
-		      input: GFM
-  		      syntax_highlighter: rouge
+		    input: GFM
+  		    syntax_highlighter: rouge
 redcarpet:
   extensions:
     - smart
