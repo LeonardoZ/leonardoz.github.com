@@ -106,7 +106,7 @@ Uma forma informal de descrever uma função é demonstrada abaixo:
 
 O código abaixo contém exemplos das variações descritas:
 
-{% highlight scala %}
+```scala
 // Square: calcula o quadrado de um número**
 
 /**
@@ -164,8 +164,7 @@ val result = square(2)
 */
 val result: Int = square(2)
 
-
-{% endhighlight %}
+```
 
 
 Para invocar a função, utilize a sintaxe descrita no exemplo **G1**, e o resultado da expressão poderá será calculado.
@@ -177,9 +176,9 @@ Se necessário, Scala suporta o operador **var**, que funciona como uma variáve
 
 Em Scala, **if** é uma expressão que retorna um valor.
 
-{% highlight scala %}
+```scala
 def name(x: String) = if (x.isEmpty) "Anonymous" else x
-{% endhighlight %}
+```
 
 É possível utilizar a mesma regra dos blocos de corpo das funções, se  caso houver mais de uma expressão.
 
@@ -205,7 +204,7 @@ O número de parâmetros pode variar. Havia uma limitação em versões antigas 
 
 Segue abaixo descrição e exemplos de como utilizar High-Order Functions e Anonymous Functions.
 
-{% highlight scala %}
+```scala
 /**
  * Exemplo A2
  * High-Order Function
@@ -257,7 +256,7 @@ val result1 = apply(2, 3, (x, y) => x + y)
 def sum2(x: Int, y: Int) = x + y
 val result2 = apply(2, 4, sum2)
 
-{% endhighlight %}
+```
 
 Com várias formas de se utilizar uma função, é possível estabelecer diversas maneiras de como modelar o seu domínio, resolvendo os problemas de forma mais objetiva.
 
