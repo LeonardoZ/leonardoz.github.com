@@ -109,12 +109,12 @@ O código abaixo contém exemplos das variações descritas:
 {% highlight scala %}
 // Square: calcula o quadrado de um número**
 
-/*
+/**
 * Exemplo A1 - Definição de corpo com expressão única.
 */
 def squareA(x: Int): Int = x * 2
 
-/*
+/**
 * Exemplo B1 - Definição de corpo com expressão única 
 * e chaves não-obrigatórias.
 */
@@ -122,7 +122,7 @@ def squareB(x: Int): Int = {
     x * 2
 }
 
-/*
+/**
 * Exemplo C1 - Corpo com chaves obrigatórias por haver 
 * mais de uma expressão.
 */
@@ -131,7 +131,7 @@ def squareC(x: Int): Int = {
     x * multiplyBy
 }
 
-/*
+/**
 * Exemplo D1 - Tipo de retorno da função omitido; 
 * Scala descobre em tempo de compilação que
 * o tipo da última expressão do corpo é o tipo de retorno.
@@ -206,7 +206,7 @@ O número de parâmetros pode variar. Havia uma limitação em versões antigas 
 Segue abaixo descrição e exemplos de como utilizar High-Order Functions e Anonymous Functions.
 
 {% highlight scala %}
-/*
+/**
  * Exemplo A2
  * High-Order Function
  * Função que recebe dois parâmetros Int
@@ -216,7 +216,7 @@ Segue abaixo descrição e exemplos de como utilizar High-Order Functions e Anon
  */
 def apply(x: Int, y: Int, f: (Int, Int) => Int) = f(x, y)
 
-/*
+/**
  * Exemplo B2
  * Função anônima (sem nome)
  * Anonymous Function
@@ -225,7 +225,7 @@ def apply(x: Int, y: Int, f: (Int, Int) => Int) = f(x, y)
  */
 val sum = (x: Int, y: Int) => x + y
 
-/*
+/**
  * Exemplo C2
  * É possível utilizar a declaração de função (def)
  * Possibilita passagem de novos parâmetros.
@@ -234,7 +234,7 @@ val sum = (x: Int, y: Int) => x + y
  */
 def subAndPlus(z: Int) = (x: Int, y: Int) => (x - y) + z
 
-/*
+/**
  * Exemplo D2
  * Apesar da Type Inference, é possível
  * declarar o tipo de de mult explicitamente.
@@ -242,14 +242,14 @@ def subAndPlus(z: Int) = (x: Int, y: Int) => (x - y) + z
 val mult: (Int, Int) => Int = (x: Int, y: Int) => x * y
 
 
-/*
+/**
  * Exemplo E2
  * Função anônima (anonymous function) passada
  * diretamente como parâmetro para apply.
  */
 val result1 = apply(2, 3, (x, y) => x + y)
 
-/*
+/**
  * Exemplo F2
  * Função nomeada passada
  * como parâmetro para apply.
