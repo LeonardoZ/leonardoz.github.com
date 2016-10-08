@@ -1,6 +1,6 @@
 ---
 layout: post
-title: Uma introdução à Scala
+title: Uma introdução à programação em Scala
 date: 07/10/2016 18:00:00
 disqus: y
 share: y
