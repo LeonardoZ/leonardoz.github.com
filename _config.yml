@@ -3,7 +3,7 @@ description:      Um blog sobre Java, Scala, linguagens e relacionados.
 url:              
 signoff:          Leonardo
 disqus_shortname: leonardoz
-facebook_appid:   # appid for like button, remove from /_includes/share.html if unwanted.
+facebook_appid:   298713480512281
 google_analytics: UA-84384831-1
 
 links:
