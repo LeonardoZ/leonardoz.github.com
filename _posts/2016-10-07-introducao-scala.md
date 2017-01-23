@@ -11,6 +11,7 @@ Scala é uma linguagem de programação multi paradigma que oferece suporte à P
 A linguagem foi criada pelo cientista da computação alemão Martin Odersky, que é professor na Escola Politécnica Federal de Lausana (École Polytechnique Fédérale de Lausanne, EPFL), na Suíça. Odersky participou do desenvolvimento do próprio Java, trabalhando com toda parte de Generics e com o desenvolvimento da versão atual do javac.
 
 ### Público alvo
+
 A linguagem possuí muitos recursos, e o paradigma de programação funcional exige um grande esforço para ser aprendido, principalmente para os programadores que não estão habituados com a forma funcional de se programar. Por conta desses fatores, a quantidade de recursos e um paradigma não usual, a curva de aprendizado de Scala é enorme, o que cria barreiras em determinadas equipes de desenvolvimento.
 
 Por conta das dificuldades, uma métrica de aprendizado da linguagem foi criada por Odersky, e apesar de sua controvérsia, é uma boa fonte para se avaliar o seu progresso e pautar estudos. Uma descrição completa dos níveis pode ser lida aqui [Link](http://www.scala-lang.org/old/node/8610)
