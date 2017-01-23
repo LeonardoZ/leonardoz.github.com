@@ -6,7 +6,6 @@ disqus: y
 share: y
 ---
 
-###  O que é
 Scala é uma linguagem de programação multi paradigma que oferece suporte à Programação Orientada a Objetos e Programação Funcional de forma conjunta. A linguagem é compilada e seu sistema de tipos é forte e estático, além de ser unificado (todos os valores, mesmo os numéricos como Integer e Double, ou booleanos) são todos instâncias de uma classe. Você pode conferir tudo em detalhes, fazer o download, instalar e configurar [nesse site](http://scala-lang.org).
 
 A linguagem foi criada pelo cientista da computação alemão Martin Odersky, que é professor na Escola Politécnica Federal de Lausana (École Polytechnique Fédérale de Lausanne, EPFL), na Suíça. Odersky participou do desenvolvimento do próprio Java, trabalhando com toda parte de Generics e com o desenvolvimento da versão atual do javac.
