@@ -1,6 +1,6 @@
 ---
 layout: post
-title: Java 8 e as Interfaces Funcionais padrões da linguagem
+title: Java 8 e suas Interfaces Funcionais
 date: 22/03/2017 09:30:00
 disqus: y
 share: y
@@ -37,9 +37,12 @@ Considero conhecer as funções desse pacote um fator essêncial para se entende
 
 ### NomeDaFunção<Tipos Parametrizados Genericos> (breve tradução)
 **Parâmetros:** Listagem dos parâmetros (Tipo, Tipo...)
-**Retorno:** O retorno da função (Tipo), quando houver.
+
+**Retorno:** O retorno da função (Tipo), quando houver
+
 **Funcionalidade:** Breve descrição de como a função funciona e como por ser utilizada.
-**Lambda:**
+
+**Lambda:** 
 {% highlight java %}
 Trecho de codigo Java demonstrando a estrutura no formato de Lambda da função, usa exemplos da API básica que qualquer novato pode reconhecer. Não usei a inferência de tipos para não complicar a leitura sem contexto.
 {% endhighlight %}
@@ -47,9 +50,12 @@ Trecho de codigo Java demonstrando a estrutura no formato de Lambda da função,
 ## Listagem das principais Interfaces Funcionais:
 
 ### Consumer<T> (Consumidor)
-**Parâmetro** T
+**Parâmetro:** T
+
 **Retorno:** Nenhum
+
 **Funcionalidade:** Interface que pede um parâmetro do tipo genérico T e não retorna nenhum resultado. Utilizada quando será executada alguma ação em que o feedback (retorno) não será necessário.
+
 **Lambda:**
 {% highlight java %}
 (String valor) -> metodoSemRetornoQueProcessaValor(valor);
@@ -58,8 +64,11 @@ Trecho de codigo Java demonstrando a estrutura no formato de Lambda da função,
 
 ### BiConsumer<T, U> (Consumidor de dois parâmetros)
 **Parâmetros:** T e U
+
 **Retorno:** Nenhum
+
 **Funcionalidade:** Função que pede dois parâmetros, de tipos genéricos, que podem ser diferentes (T e U), e que não retornam nenhum resultado. Possuí a mesma finalidade de Consumer<T>, com a diferença da aridade (quantia e tipos dos parâmetros).
+
 **Lambda:**
 {% highlight java %}
 (String aluno, Double nota) -> metodoSemRetornoQueProcessaNota(aluno, nota);
@@ -68,8 +77,11 @@ Trecho de codigo Java demonstrando a estrutura no formato de Lambda da função,
 
 ### Supplier<T> (Fornecedor)
 **Parâmetros:** Nenhum.
+
 **Retorno:** T
-Funcionalidade: Função que fornece um valor qualquer do tipo T, e que não pede nenhum parâmetro. Geralmente utilizada para fornecimento de alguma instância de uma classe qualquer, por exemplo.
+
+**Funcionalidade:** Função que fornece um valor qualquer do tipo T, e que não pede nenhum parâmetro. Geralmente utilizada para fornecimento de alguma instância de uma classe qualquer, por exemplo.
+
 **Lambda:**
 {% highlight java %}
 // expressões lambda de uma linha não requerem o uso da keyword return 
@@ -78,9 +90,12 @@ Funcionalidade: Função que fornece um valor qualquer do tipo T, e que não ped
 
 
 ### Function<T, R> (Função)
-**Parâmetro** T
+**Parâmetro:** T
+
 **Retorno:** R
+
 **Funcionalidade:** Função que aceita um parâmetro do tipo T e retorna um valor do tipo R. Pode ser utilizada em vários cenários diferentes, em qualquer um que obedecer a regra "Recebe x, devolve y".
+
 **Lambda:**
 {% highlight java %}
 (String informacao) -> metodoQueProduzConexaoComBancoDeDados(informacao);
@@ -89,8 +104,11 @@ Funcionalidade: Função que fornece um valor qualquer do tipo T, e que não ped
 
 ### BiFunction<T, U, R> (Função de dois parâmetros)
 **Parâmetros:** T, U
+
 **Retorno:** R
+
 **Funcionalidade:** Função que aceita dois parâmetros, um do tipo T e outro do tipo U, e que retorna um valor do tipo R. Segue a mesma regra de Function, com diferenças na aridade da função.
+
 **Lambda:**
 {% highlight java %}
 (String valor, Double num) -> metodoQueConverteValorESomaComNum(valor, num);
@@ -98,9 +116,12 @@ Funcionalidade: Função que fornece um valor qualquer do tipo T, e que não ped
 
 
 ### UnaryOperator<T> (Operador Unário)
-**Parâmetro** T
+**Parâmetro:** T
+
 **Retorno:** T
+
 **Funcionalidade:** Possui um único parâmetro do tipo T e o retorno é do mesmo tipo T. Forma especializada de Function que força a tipagem, fazendo tanto o parâmetro de entrada quanto o resultado de saída serem do mesmo tipo.
+
 **Lambda:**
 {% highlight java %}
 (Double numero) -> metodoQueRetornaNumeroAoCubo(numero);
@@ -108,8 +129,10 @@ Funcionalidade: Função que fornece um valor qualquer do tipo T, e que não ped
 
 
 ### BinaryOperator<T>
-**Parâmetro** T
+**Parâmetro:** T
+
 **Retorno:** T
+
 **Funcionalidade:** Forma especializada de UnaryOperator<T>. Possui dois parâmetros do tipo T e o retorno é do mesmo tipo T.
 **Lambda:**
 {% highlight java %}
@@ -118,9 +141,12 @@ Funcionalidade: Função que fornece um valor qualquer do tipo T, e que não ped
 
 
 ### Predicate<T> (Predicado)
-**Parâmetro** T
+**Parâmetro:** T
+
 **Retorno:** boolean
+
 **Funcionalidade:** Função que recebe um parâmetro do tipo T e que deve retornar um valor verdadeiro ou falso. Utilizada em filtros, ou em qualquer situação em que for necessário classificar um valor (T) como verdadeiro ou falso.
+
 **Lambda:**
 {% highlight java %}
 (String cpf) -> metodoQueAvaliaValidadeDoCpf(cpf);
@@ -129,8 +155,11 @@ Funcionalidade: Função que fornece um valor qualquer do tipo T, e que não ped
 
 ### BiPredicate<T> (Predicado com dois parâmetros)
 **Parâmetros:** T, U
+
 **Retorno:** boolean
+
 **Funcionalidade:** Função que recebe dois parâmetros, um do tipo T e outro do tipo U, e que deve retornar um valor verdadeiro ou falso. Forma especializada do Predicate.
+
 **Lambda:**
 {% highlight java %}
 (String login, byte[] senha) -> metodoQueRetornaBoolean(login, senha);
