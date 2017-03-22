@@ -1,7 +1,10 @@
 <html>
   <head>
-    <meta content='{{ page.title }} - {{ site.title }}' property='og:title' />
-    <title>{{ page.title }} - {{ site.title }}</title>
+   
+	<meta property="og:type" content="article" />
+	<meta property="og:title" content="{{ page.title }} - {{ site.title }}" />
+	<meta property="og:description" content="{{ page.title }}" />
+	<title>{{ page.title }} - {{ site.title }}</title>
     {% include head.html %}
   </head>
   <body>
