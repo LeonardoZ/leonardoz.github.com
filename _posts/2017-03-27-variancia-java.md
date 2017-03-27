@@ -6,7 +6,7 @@ disqus: y
 share: y
 ---
 
-No contexto da programação, **variância** descreve as propriedades de variar na hierarquia de tipos que uma determinada escrutura possui. Em Java, temos exemplos de aplicação das regras de variância na sobescrita de métodos, na declaração de tipos que requerem Generic Type Parameters (`List<E>`, por exemplo), em Arrays e outras estruturas semânticas que a linguagem oferece.
+No contexto da programação, **variância** descreve as propriedades de variar na hierarquia de tipos que uma determinada estrutura possui. Em Java, temos exemplos de aplicação das regras de variância na sobescrita de métodos, na declaração de tipos que requerem Generic Type Parameters (`List<E>`, por exemplo), em Arrays e outras estruturas semânticas que a linguagem oferece.
 
 **Subtipagem** é um termo que indica a existência da capacidade de se criar subtipos na linguagem. Em linguagens Orientadas a Objetos, isso se dá pela Herança ou mecanismos correlatos, como interfaces. Uma das melhores características da Herança não é o reuso de código em sim, mas sim a capacidade de se estabelecer **hierarquias de tipos**. Na maioria das vezes, reuso de código é melhor executado com o uso de composição do que herança. 
 
