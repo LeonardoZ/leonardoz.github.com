@@ -8,7 +8,7 @@ share: y
 
 ## Propriedades de Variância em Java
 
-No contexto da programação, **variância** descreve as propriedades de variar na hierarquia de tipos que uma determinada escrutura possui. Em Java, temos exemplos de aplicação das regras de variância na sobescrita de métodos, na declaração de tipos que requerem Generic Type Parameters (List<E>, por exemplo), em Arrays e outras estruturas semânticas que a linguagem oferece.
+No contexto da programação, **variância** descreve as propriedades de variar na hierarquia de tipos que uma determinada escrutura possui. Em Java, temos exemplos de aplicação das regras de variância na sobescrita de métodos, na declaração de tipos que requerem Generic Type Parameters (`List<E>`, por exemplo), em Arrays e outras estruturas semânticas que a linguagem oferece.
 
 **Subtipagem** é um termo que indica a existência da capacidade de se criar subtipos na linguagem. Em linguagens Orientadas a Objetos, isso se dá pela Herança ou mecanismos correlatos, como interfaces. Uma das melhores características da Herança não é o reuso de código em sim, mas sim a capacidade de se estabelecer **hierarquias de tipos**. Na maioria das vezes, reuso de código é melhor executado com o uso de composição do que herança. 
 
@@ -16,12 +16,12 @@ Primeiro vamos entender os tipos de variância e depois veremos suas aplicaçõe
 
 ### Covariância
 
-Dado uma relação em que **um tipo A é pai de um tipo B ou A > B**, o tipo mais específico (B) pode substituir o tipo menos específico (A). 
+Dado uma relação em que **um tipo A é pai de um tipo B ou A <: B**, o tipo mais específico (B) pode substituir o tipo menos específico (A). 
 "Mais ou menos especifico" se refere a especialização de um tipo. No Princípio de Substituição de Liskov, de forma simples temos que, dada a mesma relação acima, A > B, o tipo filho B deve fazer no mínimo tudo o que o tipo A fizer para haver a substituição sem perdas. Se B faz tudo que A faz, então ele é A. E sendo B, pode ir além e fazer outras coisas. Esse princípio se aplica na Covariância.
 
 ### Contravariância
 
-Dado uma relação em que **um tipo A é pai de um tipo B ou A > B**, o tipo menos específico (B) pode ser substituído pelo tipo (A), considerando apenas o que ambos tem em comum, que é o comportamento de A. É um princípio pouco utilizado, sendo a covariância muito mais comum e até mesmo mais intuitiva.
+Dado uma relação em que **um tipo A é pai de um tipo B ou A <: B**, o tipo menos específico (B) pode ser substituído pelo tipo (A), considerando apenas o que ambos tem em comum, que é o comportamento de A. É um princípio pouco utilizado, sendo a covariância muito mais comum e até mesmo mais intuitiva.
 
 ### Invariância
 
@@ -37,84 +37,84 @@ Na sobrescrita de métodos em Java, temos duas propriedades diferentes para dois
 
 {% highlight java %}
 public class A {
-	Number addTo(Integer num) {
-		return num + 1;
-	}
+    Number addTo(Integer num) {
+        return num + 1;
+    }
 }
  
 public class B extends A {
     // Integer é subtipo de Number
-	// O argumento do tipo Integer deve permanecer o mesmo
-	@Override
-	Integer addTo(Integer num){
-		return num + 3;
-	}
+    // O argumento do tipo Integer deve permanecer o mesmo
+    @Override
+    Integer addTo(Integer num){
+        return num + 3;
+    }
 } 
 {% endhighlight %}
 
 ### Propriedades de variância em Arrays
 
-O Arrays em Java, além de serem estáticos, são covariantes por natureza. Em suma, dado um Array A[], é possível substituí-lo por um Array de um de seus tipos mais específicos. No entanto, um array de um tipo mais específico, um subtipo, não aceita a inserção de um tipo pai menos específico.
+O Arrays em Java, além de serem estáticos, são covariantes por natureza. Em suma, dado um Array `A[]`, é possível substituí-lo por um Array de um de seus tipos mais específicos. No entanto, um array de um tipo mais específico, um subtipo, não aceita a inserção de um tipo pai menos específico.
 
-{ % highlight java %}
+{% highlight java %}
 public class ArrayOperations {
 
-	public static void main(String[] args) {
-		A a1 = new A();
-		B b1 = new B();
-		
-		A[] arrayA = new A[3];
-		B[] arrayB = new B[3];
-		
-		// Válidos
-		insertInto(arrayA, a1);
-		insertInto(arrayA, b1);
-		
-		/*
-		 * Lança java.lang.ArrayStoreException em Runtime
-		 * Um B[] não armazena um valor A
-		 */
-		insertInto(arrayB, a1);
-	}
+    public static void main(String[] args) {
+        A a1 = new A();
+        B b1 = new B();
+        
+        A[] arrayA = new A[3];
+        B[] arrayB = new B[3];
+        
+        // Válidos
+        insertInto(arrayA, a1);
+        insertInto(arrayA, b1);
+        
+        /*
+       * Lança java.lang.ArrayStoreException em Runtime
+       * Um B[] não armazena um valor A
+       */
+        insertInto(arrayB, a1);
+    }
 
-	public static void insertInto(A[] arrayA, A a) {
-		arrayA[0] = a;
-	}
+    public static void insertInto(A[] arrayA, A a) {
+        arrayA[0] = a;
+    }
 }
 {% endhighlight %}
 
 ### Propriedades de variância em Generic Types
 
-No caso dos Generic Types, temos uma gama maior de variações. De forma simples, um tipo container List<A> é invariante, não permitindo em Runtime sua substituição por List<B>, por exemplo. No entanto, os métodos que requerem um tipo A ainda aceitam quando um tipo B é informado, devido ao polimorfismo, ou seja, o Generic Type informado ainda obedece ao polimorfismo normal. A invariância ocorre apenas no estabelecimento da relaçao entre List<A> e List<B>, os tipos que "encaixotam" o Generic Type.
+No caso dos Generic Types, temos uma gama maior de variações. De forma simples, um tipo container `List<A>` é invariante, não permitindo em Runtime sua substituição por `List<B>`, por exemplo. No entanto, os métodos que requerem um tipo A ainda aceitam quando um tipo B é informado, devido ao polimorfismo, ou seja, o Generic Type informado ainda obedece ao polimorfismo normal. A invariância ocorre apenas no estabelecimento da relaçao entre `List<A>` e `List<B>`, os tipos que "encaixotam" o Generic Type.
 
 {% highlight java %}
 public class GenericsVariance {
-	public static void main(String[] args) {
-		ArrayList<A> listA = new ArrayList<>();
-		ArrayList<B> listB = new ArrayList<>();
-		
-		// válidos
-		listA.add(new A());
-		listB.add(new B());
-		listA.add(new B());
-		insertInto(listA, new A());
-		insertInto(listA, new B());
-		
-		 //Não compila
-		 listB.add(new A());
+    public static void main(String[] args) {
+        ArrayList<A> listA = new ArrayList<>();
+        ArrayList<B> listB = new ArrayList<>();
+        
+        // válidos
+        listA.add(new A());
+        listB.add(new B());
+        listA.add(new B());
+        insertInto(listA, new A());
+        insertInto(listA, new B());
+        
+       //Não compila
+       listB.add(new A());
          
-		 // não compila - aceita apenas ArrayList<A>
-		 listA = listB;
-		 insertInto(listB, new A());
-		 ArrayList<A> invalidList = new ArrayList<B>();		 
-	}
-	
+       // não compila - aceita apenas ArrayList<A>
+       listA = listB;
+       insertInto(listB, new A());
+       ArrayList<A> invalidList = new ArrayList<B>();       
+    }
+    
     /*
     * list é invariante
     */ 
-	public static void insertInto(ArrayList<A> list, A...as) {
-		list.addAll(Arrays.asList(as));
-	}
+    public static void insertInto(ArrayList<A> list, A...as) {
+        list.addAll(Arrays.asList(as));
+    }
 }
 {% endhighlight %}
 
@@ -124,38 +124,38 @@ Se uma classe que aceita um Generic Type Parameter, em tese ela aceita qualquer 
 
 Com os **Bounded Type Parameters**, podemos limitar uso dos Generic Types informados em uma determinada hierarquia de tipos, e com essa limitação, temos mais informação, pois agora podemos utilizar os métodos não-estáticos declarados pelo Generic Type que define o limite.
 
-Um **Upper Bound Type** define um limite superior (um tipo pai), e para utilizamos fazemos isso no formato <T extends A> (para covariância), sendo T um indicador do tipo genérico e A um tipo qualquer (poderia ser Pessoa, Estoque, ou qualquer outra classe que você tenha no seu projeto). 
+Um **Upper Bound Type** define um limite superior (um tipo pai), e para utilizamos fazemos isso no formato `<T extends A>` (para covariância), sendo T um indicador do tipo genérico e A um tipo qualquer (poderia ser Pessoa, Estoque, ou qualquer outra classe que você tenha no seu projeto). 
 
-No caso abaixo, o método genérico **print** declara um Upper Bound Type que nos permite passar um ArrayList<A> ou qualquer ArrayList<subtipo de A> como parâmetro.
+No caso abaixo, o método genérico **print** declara um Upper Bound Type que nos permite passar um `ArrayList<A>` ou qualquer `ArrayList<subtipo de A>` como parâmetro.
 
 {% highlight java %}
 public class GenericsUpperBoundedTypeVariance {
-	public static void main(String[] args) {
-		ArrayList<A> listA = new ArrayList<>();
-		ArrayList<B> listB = new ArrayList<>();
-		
-		// válidos
-		listB.add(new B());
-		
-		// aceitas listas diferentes de A, como as de tipo B, que é subtipo de A
-		insertInto(listB);
-		insertInto(listA);
-	}
-	
+    public static void main(String[] args) {
+        ArrayList<A> listA = new ArrayList<>();
+        ArrayList<B> listB = new ArrayList<>();
+        
+        // válidos
+        listB.add(new B());
+        
+        // aceitas listas diferentes de A, como as de tipo B, que é subtipo de A
+        insertInto(listB);
+        insertInto(listA);
+    }
+    
     
     /*
     * list é covariante
     */ 
-	public static <T extends A> void print(ArrayList<T> list) {
-		for (A a : list) {
-			// Podemos acessar o método de A que é comum para toda hierarquia
-			System.out.println(a.add3(23));
-		}
-	}
+    public static <T extends A> void print(ArrayList<T> list) {
+        for (A a : list) {
+            // Podemos acessar o método de A que é comum para toda hierarquia
+            System.out.println(a.add3(23));
+        }
+    }
 }
 {% endhighlight %}
 
-No caso, **Lower Bounded Types** não são suportados pelo Java, que seria algo como <T super A>. Nesse cenário, ter um Lower Bound seria semelhante a não ter nenhum bound, sendo o Generic Type na prática semelhante a Object. 
+No caso, **Lower Bounded Types** não são suportados pelo Java, que seria algo como `<T super A>`. Nesse cenário, ter um Lower Bound seria semelhante a não ter nenhum bound, sendo o Generic Type na prática semelhante a Object. 
 
 ### Wildcards
 
@@ -176,9 +176,9 @@ Já os Bounded Wildcards são mas interessantes. O **Upper Bound Wildcard** tem 
 * No entanto não há informação do Generic Type informado
 */
 public static void print(ArrayList<? extends A> list) {
-		for (A a : list) {
-			System.out.println(a.add3(23));
-		}
+    for (A a : list) {
+        System.out.println(a.add3(23));
+    }
 }
 {% endhighlight %}
 
@@ -209,26 +209,26 @@ Ex.: Se precisarmos Iterar um ArrayList, ele está "produzindo" valores. Nesse c
 
 {% highlight java %}
 public class ProducerExtendsDemo {
-	/*
-	 *  Garante que a list recebida é de Number ou de um subtipo
-	 */
-	public static void producerParameter(ArrayList<? extends Number> list) {
-		// Parâmetro "produz" tipo de acordo com seu Bound
-		for (Number number : list) {}
-		
-		// Não compila - Escrita não é garantida pelo extends
-		list.add(10);
-	}
-	
-	public static void main(String[] args) {
-		ArrayList<Integer> listInts = new ArrayList<>();
-		ArrayList<Double> listDoubles = new ArrayList<>();
-		
-		// covariância na prática
-		producerParameter(listInts);
-		producerParameter(listDoubles);
-	}
-}	
+    /*
+    *  Garante que a list recebida é de Number ou de um subtipo
+    */
+    public static void producerParameter(ArrayList<? extends Number> list) {
+        // Parâmetro "produz" tipo de acordo com seu Bound
+        for (Number number : list) {}
+        
+        // Não compila - Escrita não é garantida pelo extends
+        list.add(10);
+    }
+    
+    public static void main(String[] args) {
+        ArrayList<Integer> listInts = new ArrayList<>();
+        ArrayList<Double> listDoubles = new ArrayList<>();
+        
+        // covariância na prática
+        producerParameter(listInts);
+        producerParameter(listDoubles);
+    }
+}    
 {% endhighlight %}
 
 
@@ -239,26 +239,26 @@ Ex.: Se precisarmos inserir valores em um ArrayList vindo por parâmetro, ele es
 
 {% highlight java %}
 public class ConsumerSuperDemo {
-	/*
-	 * Garante que a list recebida é de Integer ou de um Ancestral
-	 */
-	public static void consumerParameter(ArrayList<? super Integer> list) {
-		// aceita apenas Integer
-		list.add(10);
-		
-		// Não compila - Leitura não é garantida pela super
-		for (Integer i : list) {}
-	}
-	
-	public static void main(String[] args) {
-		ArrayList<Number> listNumbers = new ArrayList<>();
-		ArrayList<Object> listObjects = new ArrayList<>();
-		
-		// contravariância na prática
-		consumerParameter(listNumbers);
-		consumerParameter(listObjects);
-	}
-}	
+    /*
+    * Garante que a list recebida é de Integer ou de um Ancestral
+    */
+    public static void consumerParameter(ArrayList<? super Integer> list) {
+        // aceita apenas Integer
+        list.add(10);
+        
+        // Não compila - Leitura não é garantida pela super
+        for (Integer i : list) {}
+    }
+    
+    public static void main(String[] args) {
+        ArrayList<Number> listNumbers = new ArrayList<>();
+        ArrayList<Object> listObjects = new ArrayList<>();
+        
+        // contravariância na prática
+        consumerParameter(listNumbers);
+        consumerParameter(listObjects);
+    }
+}    
 {% endhighlight %}
 
 
