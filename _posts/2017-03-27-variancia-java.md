@@ -1,12 +1,10 @@
 ---
 layout: post
-title: Propriedades de Variância em Java
+title: Propriedades de Variância no Java
 date: 27/03/2017 09:00:00
 disqus: y
 share: y
 ---
-
-## Propriedades de Variância em Java
 
 No contexto da programação, **variância** descreve as propriedades de variar na hierarquia de tipos que uma determinada escrutura possui. Em Java, temos exemplos de aplicação das regras de variância na sobescrita de métodos, na declaração de tipos que requerem Generic Type Parameters (`List<E>`, por exemplo), em Arrays e outras estruturas semânticas que a linguagem oferece.
 
