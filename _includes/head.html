@@ -1,33 +1,39 @@
-<link href='{{ site.url }}/images/fav.png' rel='shortcut icon'>
-<link href='http://fonts.googleapis.com/css?family=Open+Sans:400,700' rel='stylesheet' type='text/css' />
-<link href='{{ site.url }}/stylesheets/style.css' rel='stylesheet' type='text/css' />
-<link href='{{ site.url }}/stylesheets/syntax.css' rel='stylesheet' type='text/css' />
-<link href='{{ site.url }}/stylesheets/responsive.css' rel='stylesheet' type='text/css' />
-<!-- - -->
-<script src='{{ site.url }}/javascripts/jquery.js' type='text/javascript'></script>
-<script src='{{ site.url }}/javascripts/pd.js' type='text/javascript'></script>
-<script src='{{ site.url }}/javascripts/basics.js' type='text/javascript'></script>
-<script type="text/javascript" src="https://www.google.com/jsapi"></script>
-<!-- - -->
-<meta content='width=device-width, initial-scale=1.0, user-scalable=no' name='viewport'>
-<meta content='text/html; charset=utf-8' http-equiv='content-type' />
-<meta content="{{ site.url }}/og.png" property="og:image" />
-<meta content="{{ site.facebook_appid }}" property="fb:app_id" />
-{% if page.date %}
-  <meta content='{{ site.url }}{{ page.url }}' property='og:url' />
-  <meta content="{{ page.content | strip_html | strip_newlines | truncate: 120 }}" property='og:description' />
-  <meta content="article" property="og:type" />
+<meta charset="utf-8">
+<title>{{ site.description }}</title>
+<meta name="description" content="{% if page.description %}{{ page.description }}{% else %}{{ site.description }}{% endif %}">
+{% if page.tags %}<meta name="keywords" content="{{ page.tags | join: ', ' }}">{% endif %}
+{% if site.owner.twitter %}<!-- Twitter Card and Open Graph tags -->
+<meta name="twitter:title" content="{% if page.title %}{{ page.title }} &#8211; {% endif %}{{ site.title }}">
+<meta name="twitter:description" content="{% if page.description %}{{ page.description }}{% else %}{{ site.description }}{% endif %}">
+<meta name="twitter:creator" content="@{{ site.owner.twitter }}">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:image:src" content="{% if page.image.thumb %}{{ site.url }}/images/{{ page.image.thumb }}{% else %}{{ site.url }}/images/{{ site.logo }}{% endif %}">{% endif %}
+<meta property="og:type" content="article">
+<meta property="og:title" content="{% if page.title %}{{ page.title }} &#8211; {% endif %}{{ site.title }}">
+<meta property="og:description" content="{% if page.description %}{{ page.description }}{% else %}{{ site.description }}{% endif %}">
+<meta property="og:url" content="{{ site.url }}{{ page.url }}">
+<meta property="og:site_name" content="{{ site.title }}">
+
+<!-- Webmaster Tools verfication -->
+{% if site.google_verify %}<meta name="google-site-verification" content="{{ site.google_verify }}">{% endif %}
+{% if site.bing_verify %}<meta name="msvalidate.01" content="{{ site.bing_verify }}">{% endif %}
+
+{% capture canonical %}{{ site.url }}{% if site.permalink contains '.html' %}{{ page.url }}{% else %}{{ page.url | remove:'index.html' | strip_slash }}{% endif %}{% endcapture %}
+<link rel="canonical" href="{{ canonical }}">
+<link href="{{ site.url }}/feed.xml" type="application/atom+xml" rel="alternate" title="{{ site.title }} Feed">
+{% if site.owner.google_plus %}<link rel="author" href="{{ site.owner.google_plus }}?rel=author">{% endif %}
+<meta http-equiv="content-type" content="text/html; charset=utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<link rel="stylesheet" href="{{ '/css/main.min.css' | relative_url }}" type="text/css" />
+
+
+{% if site.rtl %}
+<link rel="stylesheet" href="{{ '/css/main.min.rtl.css' | relative_url }}" type="text/css" />
+<style>
+    .highlight pre {
+        direction: ltr;
+    }
+</style>
 {% else %}
-  <meta content='{{ site.url }}' property='og:url' />
-  <meta content="{{ site.description }}" property='og:description' />
-  <meta content="blog" property="og:type" />
+<link rel="stylesheet" href="{{ '/css/main.min.css' | relative_url }}" type="text/css" />
 {% endif %}
-<!-- - -->
-{% include ga.html %}
-<script>(function(d, s, id) {
-  var js, fjs = d.getElementsByTagName(s)[0];
-  if (d.getElementById(id)) return;
-  js = d.createElement(s); js.id = id;
-  js.src = "//connect.facebook.net/en_GB/all.js#xfbml=1&appId={{ site.facebook_appid }}";
-  fjs.parentNode.insertBefore(js, fjs);
-}(document, 'script', 'facebook-jssdk'));</script>

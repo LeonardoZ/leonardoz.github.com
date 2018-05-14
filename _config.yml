@@ -1,27 +1,34 @@
-title:            Leonardo Zapparoli - Desenvolvimento de software
-description:      Um blog sobre Java, Scala, linguagens e relacionados.
-url:              
-signoff:          Leonardo
-disqus_shortname: leonardoz
-facebook_appid:   298713480512281
+name: Leonardo Zapparoli - Desenvolvimento de software
+description: >
+    Um blog sobre Java, Scala, linguagens e relacionados.
+about: >
+    Meu nome é Leonardo Henrique Zapparoli, sou formado pela Faculdade de Tecnologia de Botucatu (FATEC), no curso de Informática para Negócios. 
+    Usarei esse blog para falar um pouco sobre Java, Scala, Javascript e algumas outras coisas relacionadas, como linguagens de programação, banco de dados e engenharia de software.
+
+master_repo: false
+url: "http://leonardoz.github.io"
+markdown: kramdown
+highlighter: rouge
+
+plugins: ['jekyll-paginate', 'jekyll-gist', 'jekyll-feed']
+
+paginate: 4
+
+logo:             logo.png
+disqus_shortname:
+
+rtl: false
+owner:
+  name:           leonardo zapparoli
+  avatar:         "https://avatars0.githubusercontent.com/u/3333540?s=460&v=4"
+  email:          "leo.zapparoli@gmail.com"
+  # Social networking links used in footer. Update and remove as you like.
+  twitter: leonardohzapp
+  github: https://github.com/LeonardoZ
+  linkedin: https://www.linkedin.com/in/leonardozapparoli
+
+# Analytics and webmaster tools stuff goes here
 google_analytics: UA-84384831-1
-
-links:
-  - name:         Blog
-    url:          /
-  - name:         Sobre
-    url:          /sobre
-  - name:         GitHub
-    url:          http://github.com/leonardoz
-    external:     true
-highlighter:      rouge
-permalink:        pretty
-markdown:         kramdown
-kramdown:
-  input: GFM
-  syntax_highlighter: rouge	   
-redcarpet:
-  extensions:
-    - smart
-
-theme: jekyll-theme-minimal
+google_verify:
+# https://ssl.bing.com/webmaster/configure/verify/ownership Option 2 content= goes here
+bing_verify:

@@ -1,4 +1,7 @@
-source 'http://rubygems.org'
+source "https://rubygems.org"
 
-gem 'github-pages'
-gem 'rouge'
+gem "jekyll-paginate"
+gem "jekyll-gist"
+gem "jekyll"
+gem 'jekyll-feed'
+gem "rouge"
